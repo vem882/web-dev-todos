@@ -1,0 +1,41 @@
+# Node
+node_modules/
+
+# Vite
+/dist
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Env
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build
+/build
+
+# Misc
+*.local
+*.cache
+*.log
+
+# Coverage
+coverage/
+
+# Others
+*.tgz
+
+# Optional: ignore Mac system files
+*.DS_Store
