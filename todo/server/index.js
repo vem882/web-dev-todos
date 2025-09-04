@@ -14,7 +14,7 @@ const pool = new Pool({
 user: 'postgres',
 host: 'localhost',
 database: 'todo',
-password: 'changepassword',
+password: 'changepwd',
 port: 5432
 })
 return pool
