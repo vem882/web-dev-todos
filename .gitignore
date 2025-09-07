@@ -13,6 +13,9 @@ pnpm-debug.log*
 # Env
 .env
 .env.*
+/server/.env
+/server/.env.*
+/server/node_modules/
 
 # IDE
 .vscode/
