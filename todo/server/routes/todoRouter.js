@@ -1,9 +1,9 @@
 import { Router } from 'express'
 import { pool } from '../helper/db.js'
+import { auth } from '../helper/auth.js'
 
 const router = Router()
 
-// Get all todos for DB 
 router.get('/', (req, res, next) => {
     pool.query('SELECT * FROM task', (err, result) => {
         if (err) {
@@ -13,8 +13,8 @@ router.get('/', (req, res, next) => {
     })
 })
 
-// Creating a new todo task 
-router.post('/create', (req, res, next) => {
+
+router.post('/create', auth, (req, res, next) => {
     const { task } = req.body
 
     if (!task) {
@@ -32,8 +32,8 @@ router.post('/create', (req, res, next) => {
     })
 })
 
-// Delete a todo task by selected ID
-router.delete('/delete/:id', (req, res, next) => {
+
+router.delete('/delete/:id', auth, (req, res, next) => {
     const { id } = req.params
 
     console.log(`Deleting task with ID: ${id}`)
