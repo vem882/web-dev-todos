@@ -9,7 +9,7 @@ const url = "http://localhost:3001"
 function App() {
   const [task, setTask] = useState('') 
   const [tasks, setTasks] = useState([])
-  const { user } = useUser()
+  const { user, logout } = useUser()
 
   useEffect(() => {
     axios.get(url)
@@ -51,7 +51,18 @@ const deleteTask = (deleted) => {
     <>
       <div id="container">
       
-      <h3>Todos</h3>
+      <div className="app-header">
+        <div className="header-content">
+          <h2 className="app-title">Todos</h2>
+          <div className="user-info">
+            <span className="user-email">{user.email}</span>
+            <button className="logout-button" onClick={logout}>
+              Logout
+            </button>
+          </div>
+        </div>
+      </div>
+      
       <form>
         <input
           placeholder='Add new task'
@@ -71,13 +82,14 @@ const deleteTask = (deleted) => {
           Add Task
         </button>
       </form>
-      <ul>
+      
+      <div className="task-list">
         {
           tasks.map(item => (
             <Row key={item.id} item={item} deleteTask={deleteTask} />
           ))
         }
-      </ul>
+      </div>
       </div>
     </>
   )
